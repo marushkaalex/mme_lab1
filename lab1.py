@@ -3,8 +3,6 @@
 import csv
 
 def main():
-	for i in range(-20, 31, 5):
-		print(i)
 	with open('data.txt') as csvfile:
 		t_list = [0 for i in range(-20, 31, 5)]
 		for row in csvfile:
@@ -14,7 +12,10 @@ def main():
 				t_list[index] += 1
 
 		print(t_list)
-		get_expected_value(t_list)
+		e_value = get_expected_value(t_list)
+		print('Expected value:', e_value)
+		dispersia = get_dispersia(t_list, e_value)
+		print('Dispersia:', dispersia)
 
 def get_index(temparature):
 	index = 0
@@ -31,6 +32,16 @@ def get_expected_value(t_list):
 	for index, value in enumerate(t_list):
 		count += value;
 		sum += (-20 + index * 5) * value
+
+	return sum / count
+
+def get_dispersia(t_list, e_value):
+	count = 0
+	sum = 0
+	for index, value in enumerate(t_list):
+		count += value;
+		tmp = (-20 + index * 5) - e_value
+		sum += tmp * tmp 
 
 	return sum / count
 
