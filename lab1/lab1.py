@@ -47,5 +47,8 @@ def get_dispersia(t_list, e_value):
 
 	return sum / count
 
+def get_z(t_list, disp_sqrt):
+	
+
 if __name__ == '__main__':
 	main()
