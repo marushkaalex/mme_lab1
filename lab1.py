@@ -1,6 +1,7 @@
 #/usr/bin/env python3
 
 import csv
+import math
 
 def main():
 	with open('data.txt') as csvfile:
@@ -16,6 +17,7 @@ def main():
 		print('Expected value:', e_value)
 		dispersia = get_dispersia(t_list, e_value)
 		print('Dispersia:', dispersia)
+		print('Standard deviation:', math.sqrt(dispersia))
 
 def get_index(temparature):
 	index = 0
